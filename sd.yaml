@@ -2,23 +2,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-prod
+  name: pnlinesweetshopp-prod
   labels:
-       app: myapp
+       app: onlinesweetshop
 spec:
   replicas: 1
   template:
     metadata:
       name: myapp-pod
       labels:
-        app: myapp
+        app: onlinesweetshop
     spec:
       containers:
         - name: onlinesweetshopp
           image: rithikmfj/onlinesweetshopp
   selector:
     matchLabels:
-      app: myapp
+      app: onlinesweetshop
 
 ---
 apiVersion: v1
@@ -32,5 +32,5 @@ spec:
       targetPort: 8080
       nodePort: 30001
   selector:
-    app: myapp
+    app: onlinesweetshop
 
