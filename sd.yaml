@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-prod
+  labels:
+       app: myapp
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: onlinesweetshopp
+          image: rithikmfj/onlinesweetshopp
+  selector:
+    matchLabels:
+      app: myapp
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: appservice
+spec:
+  type : NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30001
+  selector:
+    app: myapp
+
