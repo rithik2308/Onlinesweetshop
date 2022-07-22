@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pnlinesweetshopp-prod
+  name: onlinesweetshopp-prod
   labels:
        app: onlinesweetshop
 spec:
